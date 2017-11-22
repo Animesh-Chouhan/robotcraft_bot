@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Teleop
+GenericName=Teleop
+Comment=Tele Operation
+Exec=bash -c "/home/pi/catkin_ws/src/robotcraft_bot/scripts/run_teleop.sh"
+Icon=/home/pi/ros.png
+Terminal=true
+TerminalOptions=bash
+Categories=Development

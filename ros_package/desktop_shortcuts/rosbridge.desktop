@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Rosbridge
+GenericName=Rosbridge
+Comment=Open Rosbridge Connection with Authentication Server
+Exec=bash -c "/home/pi/catkin_ws/src/robotcraft_bot/scripts/run_rosbridge.sh"
+Icon=/home/pi/ros.png
+Terminal=true
+TerminalOptions=bash
+Categories=Development

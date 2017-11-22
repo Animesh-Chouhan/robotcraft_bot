@@ -1,0 +1,15 @@
+<!-- Launch the keyboard teleop and the robot driver -->
+
+<launch>
+
+	<node pkg="robotcraft_bot" type="bot_teleop.py" name="robotcraft_bot_teleop" output="screen">
+		<param name="speed" value="0.15"/>
+		<param name="turn" value="0.6"/>
+	</node>
+
+	<node pkg="rosserial_python" type="serial_node.py" name="robotcraft_bot_drivers" output="screen">
+		<param name="port" value="/dev/arduino_mega"/>
+		<param name="baud" value="115200"/>
+	</node>
+
+</launch>

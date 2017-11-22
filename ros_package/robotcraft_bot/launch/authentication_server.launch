@@ -1,0 +1,37 @@
+<!-- robot_authentication_server.launch-->
+
+<!-- Make sure the local secret_hash file is pointing to the right place in this launch file-->
+
+<launch>
+  <arg name="port" default="9090" />
+  <arg name="ssl" default="false" />
+  <arg name="certfile" />
+  <arg name="keyfile" />
+  <arg name="authenticate" default="true" />
+
+  <!-- this node advertises the authentication service needed by rosbridge_server -->
+  <node pkg="rosauth" type="ros_mac_authentication" name="ros_mac_authentication"  output="screen">
+    <param name="secret_file_location" value="$(find robotcraft_bot)/hash/hash" />
+   </node>
+  
+  <!-- we are not using ssl for now ... -->
+  <group if="$(arg ssl)">
+    <node name="rosbridge_websocket" pkg="rosbridge_server" type="rosbridge_websocket" output="screen">
+      <param name="certfile" value="$(arg certfile)" />
+      <param name="keyfile" value="$(arg keyfile)" />
+      <param name="authenticate" value="$(arg authenticate)" />
+      <param name="port" value="$(arg port)" />
+    </node>
+  </group>
+  
+  <!-- we are running this ... -->
+  <group unless="$(arg ssl)">
+    <node name="rosbridge_websocket" pkg="rosbridge_server" type="rosbridge_websocket" output="screen">
+      <param name="authenticate" value="$(arg authenticate)" />
+      <param name="port" value="$(arg port)" />
+    </node>
+  </group>
+
+  <!-- API node needed to handle rosbridge operations -->
+  <node name="rosapi_node" pkg="rosapi" type="rosapi_node" output="screen"/>
+</launch>

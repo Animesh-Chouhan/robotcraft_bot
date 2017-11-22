@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Driver
+GenericName=Driver
+Comment=Open Driver Connection with Arduino
+Exec=bash -c "/home/pi/catkin_ws/src/robotcraft_bot/scripts/run_driver.sh"
+Icon=/home/pi/ros.png
+Terminal=true
+TerminalOptions=bash
+Categories=Development

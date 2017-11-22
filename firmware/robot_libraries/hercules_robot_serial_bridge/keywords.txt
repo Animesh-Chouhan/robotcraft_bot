@@ -1,0 +1,18 @@
+#######################################
+# Syntax Coloring Map For robot_serial_bridge 
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+robot_serial_bridge	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin	KEYWORD2
+bridge_heartbeat	KEYWORD2
+move_motors_pwm	KEYWORD2
+stop_motors	KEYWORD2
+get_encoders	KEYWORD2
+reset_encoders	KEYWORD2
